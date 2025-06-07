@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title><![CDATA[20210531-Hash值相同但对象不同]]></title>
+    <title><![CDATA[Hash值相同但对象不同]]></title>
     <url>%2F2021%2F05%2F31%2Fhash_same_diff_object%2F</url>
-    <content type="text"><![CDATA[不同的String对象，Hash值一样123456public static void main(String[] args) &#123; String a = "通话"; String b = "重地"; System.out.println(a.hashCode()); System.out.println(b.hashCode()); &#125;]]></content>
+    <content type="text"><![CDATA[示例123456public static void main(String[] args) &#123; String a = "通话"; String b = "重地"; System.out.println(a.hashCode()); System.out.println(b.hashCode()); &#125;输出：1211793951179395]]></content>
       <categories>
         <category>Java</category>
       </categories>
@@ -148,7 +148,7 @@
   <entry>
     <title><![CDATA[Https通信的SSL证书工作流程原理]]></title>
     <url>%2F2020%2F02%2F29%2Fhttps%2F</url>
-    <content type="text"><![CDATA[前言浏览器与服务器之间的https加密通信会包括以下一些概念：非对称加密、对称加密、RSA、证书申请、根证书。https证书加密，就是在传输层tcp和应用层http之间加了一层ssl层来对传输内容进行加密。用时序图简单记录一下大致过程吧。证书工作原理服务器向证书机构申请证书的流程如下：1.首先服务器会自行生成一对非对称的公私钥对，将公钥和域名等信息提交到证书机构申请证书，服务器的私钥由自身保管。2.证书机构会使用自己的私钥对服务器传输过来的公钥和域名信息做签名，一起组成证书交给服务器。浏览器向服务器发起Https请求的流程如下：1.首先浏览器向服务器发起请求。2.服务器将证书机构颁发给自己的证书传递给浏览器。3.浏览器从本地安装的根证书中找到证书机构的公钥，用公钥来验签证书的正确性，确保是证书机构用私钥签名的合法证书。4.浏览器随机生成一个对称秘钥key，用证书中的服务器公钥加密这个key，再传输给服务器。5.服务器用私钥解密后取出对称秘钥key，并用该key加密确认内容返回给客户端，告知可以开始通信。6.浏览器与服务器开始采用该key进行加密通信。后记浏览器和服务器之间建立连接后是采用对称加密进行通信，因为对称加密的效率强于非对称加密。证书机构的存在是为了给通信双方做担保，确认证书的有效性。 服务器->>证书机构:将公钥和域名等信息提交到证书机构申请证书 证书机构->>服务器:证书机构用自身私钥签名后将证书交给服务器{"theme":"simple","scale":1,"line-width":2,"line-length":50,"text-margin":10,"font-size":12}var code=document.getElementById("sequence-0-code").value,options=JSON.parse(decodeURIComponent(document.getElementById("sequence-0-options").value)),diagram=Diagram.parse(code);diagram.drawSVG("sequence-0",options) 浏览器->>服务器:发起请求 服务器->>浏览器:将证书机构颁发的证书传给浏览器 Note left of 浏览器: 验签证书的正确性 Note left of 浏览器: 随机生成对称秘钥key 浏览器->>服务器: 服务器公钥加密key Note right of 服务器: 私钥解密得到key 服务器->>浏览器: 用key加密确认报文 浏览器->>服务器: 开始通信...{"theme":"simple","scale":1,"line-width":2,"line-length":50,"text-margin":10,"font-size":12}var code=document.getElementById("sequence-1-code").value,options=JSON.parse(decodeURIComponent(document.getElementById("sequence-1-options").value)),diagram=Diagram.parse(code);diagram.drawSVG("sequence-1",options)]]></content>
+    <content type="text"><![CDATA[前言浏览器与服务器之间的https加密通信会包括以下一些概念：非对称加密、对称加密、RSA、证书申请、根证书。https证书加密，就是在传输层tcp和应用层http之间加了一层ssl层来对传输内容进行加密。用时序图简单记录一下大致过程吧。证书工作原理服务器向证书机构申请证书的流程如下：1.首先服务器会自行生成一对非对称的公私钥对，将公钥和域名等信息提交到证书机构申请证书，服务器的私钥由自身保管。2.证书机构会使用自己的私钥对服务器传输过来的公钥和域名信息做签名，一起组成证书交给服务器。浏览器向服务器发起Https请求的流程如下：1.首先浏览器向服务器发起请求。2.服务器将证书机构颁发给自己的证书传递给浏览器。3.浏览器从本地安装的根证书中找到证书机构的公钥，用公钥来验签证书的正确性，确保是证书机构用私钥签名的合法证书。4.浏览器随机生成一个对称秘钥key，用证书中的服务器公钥加密这个key，再传输给服务器。5.服务器用私钥解密后取出对称秘钥key，并用该key加密确认内容返回给客户端，告知可以开始通信。6.浏览器与服务器开始采用该key进行加密通信。后记浏览器和服务器之间建立连接后是采用对称加密进行通信，因为对称加密的效率强于非对称加密。证书机构的存在是为了给通信双方做担保，确认证书的有效性。 服务器->>证书机构:将公钥和域名等信息提交到证书机构申请证书 证书机构->>服务器:证书机构用自身私钥签名后将证书交给服务器{"scale":1,"line-width":2,"line-length":50,"text-margin":10,"font-size":12,"theme":"simple"}var code=document.getElementById("sequence-0-code").value,options=JSON.parse(decodeURIComponent(document.getElementById("sequence-0-options").value)),diagram=Diagram.parse(code);diagram.drawSVG("sequence-0",options) 浏览器->>服务器:发起请求 服务器->>浏览器:将证书机构颁发的证书传给浏览器 Note left of 浏览器: 验签证书的正确性 Note left of 浏览器: 随机生成对称秘钥key 浏览器->>服务器: 服务器公钥加密key Note right of 服务器: 私钥解密得到key 服务器->>浏览器: 用key加密确认报文 浏览器->>服务器: 开始通信...{"scale":1,"line-width":2,"line-length":50,"text-margin":10,"font-size":12,"theme":"simple"}var code=document.getElementById("sequence-1-code").value,options=JSON.parse(decodeURIComponent(document.getElementById("sequence-1-options").value)),diagram=Diagram.parse(code);diagram.drawSVG("sequence-1",options)]]></content>
       <categories>
         <category>学习笔记</category>
       </categories>

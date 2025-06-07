@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+  <meta charset="UTF-8">
+  <title>连续播放视频</title>
+  <style>
+    body { text-align: center; font-family: sans-serif; padding: 20px; }
+    video { width: 100%; max-width: 640px; height: auto; margin-top: 20px; }
+    button { padding: 10px 20px; font-size: 18px; }
+  </style>
+</head>
+<body>
+  <h2>连续播放视频（100 到 200）</h2>
+  <button id="startBtn">点击开始播放</button>
+  <video id="videoPlayer" controls playsinline style="display: none;"></video>
+
+  <script>
+    const baseURL = "http://www.hubeixiaoshuya.com/card/video/";
+    const startIndex = 100;
+    const endIndex = 200;
+    let currentIndex = startIndex;
+
+    const video = document.getElementById("videoPlayer");
+    const startBtn = document.getElementById("startBtn");
+
+    function loadAndPlay(index) {
+      video.src = `${baseURL}${index}.mp4`;
+      video.load();
+      video.play().catch(err => {
+        console.warn("自动播放失败", err);
+      });
+    }
+
+    video.addEventListener("ended", () => {
+      currentIndex++;
+      if (currentIndex <= endIndex) {
+        loadAndPlay(currentIndex);
+      } else {
+        alert("所有视频播放完毕！");
+      }
+    });
+
+    startBtn.addEventListener("click", () => {
+      startBtn.style.display = "none";
+      video.style.display = "block";
+      loadAndPlay(currentIndex);
+    });
+  </script>
+</body>
+</html>
